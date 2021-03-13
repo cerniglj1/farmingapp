@@ -1,71 +1,13 @@
+import { Player } from './modules/player.mjs';
+import { Seed } from './modules/seed.mjs';
+import { Patch } from './modules/patch.mjs';
+
+
 //these will hold the list of all the patch's and seeds on creation.
 //note, seeds need to be initialized first, then patches.
 let patchlist = [] //list of all patches
 const seedlist = [] //list of all seeds
 
-class Player {
-	constructor() {
-		//he be a leet boy.
-		this.username = username
-		this.level = level // should be calling this. and then a method to lookup level.
-	}
-}
-
-class Seed {
-	constructor(name = '', level = 0, xp = 0, type = '') {
-		this.name = name;
-		this.level = level;
-		this.xp = xp;
-		this.type = type;
-		seedlist.push(this);
-	}
-}
-
-class Patch {
-	constructor(location = '', seeds = [], type = '', location_name = '') {
-		this.location = location;
-		this.type = type;
-		patchlist.push(this);
-		this.generateSeeds();
-		this.location_name = location_name;
-
-	}
-
-	generateSeeds() {
-		let generatedseeds = []
-		for (let num in seedlist) {
-			if (seedlist[num].type !== this.type) {
-			} else if ((seedlist[num].type === this.type) && (this.seeds === undefined)) {
-				generatedseeds.push(seedlist[num]);
-			} else if ((seedlist[num].type === this.type) && (this.seeds !== undefined)) {
-				generatedseeds.push(seedlist[num]);
-			}
-			this.seeds = generatedseeds
-		}
-		//console.log(this.location + "'s seed gen")
-		//console.log(this.seeds)
-	};
-	minseed() {
-		//this returns the smallest/largest level for the seeds in the patch
-		let seedlist = [];
-		for (let num in this.seeds) {
-			seedlist.push(this.seeds[num].level);
-		}
-		//console.log((Math.min(...seedlist)));
-	}
-	maxseed(player) {
-		//this returns the smallest/largest level for the seeds in the patch
-		let returnseed = Babyseed // Baby seed is a placeholder seed
-		for (let num in this.seeds) {
-			if ((this.seeds[num].level <= player.level) && 
-				(this.seeds[num].level >= returnseed.level)) {
-				returnseed = this.seeds[num]
-			}
-		}
-		return(returnseed)
-	}
-
-}
 
 function patches(player) {
 	//Takes {patchlist} and returns an array of patches 
@@ -78,10 +20,6 @@ function patches(player) {
 	}
 	return lilpatchlist;
 }
-/*
-function splitInfo(item) {
-	return(item.split(' x '))
-}*/
 
 function stackUp(items) {
 	let inv = []
@@ -118,6 +56,7 @@ function getinventory(patches, player) {
 }
 
 //Define the seeds
+/
 const Babyseed = new Seed(name = 'Babyseed', level = 0, xp = 0, type = 'god')
 //creating allotments
 const Potato = new Seed(name = 'Potato', level = 1, xp = 98, type = 'allotment')
@@ -149,6 +88,7 @@ const Cadantine = new Seed(name = 'Cadantine', level = 67, xp = 946.5, type = 'h
 const Lantadyme = new Seed(name = 'Lantadyme', level = 73, xp = 1195, type = 'herb')
 const Dwarf = new Seed(name = 'Dwarf', level = 79, xp = 1514.5, type = 'herb')
 const Torstol = new Seed(name = 'Torstol', level = 85, xp = 1771, type = 'herb')
+*/
 
 //Creating the Patches
 //Location 1 (South of Falador)
