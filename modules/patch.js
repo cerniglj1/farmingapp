@@ -34,8 +34,8 @@ class Patch {
         //console.log((Math.min(...seedlist)));
     }
     maxseed(player) {
-        //this returns the smallest/largest level for the seeds in the patch
-        let returnseed = Babyseed // Baby seed is a placeholder seed
+        //this returns the largest seed that you can plant.
+        let returnseed = seedlist.Babyseed // Baby seed is a placeholder seed
         for (let num in this.seeds) {
             let seed = this.seeds[num];
             if ((seed.level <= player.level) &&
@@ -43,7 +43,7 @@ class Patch {
                 returnseed = this.seeds[num]
             }
         }
-        return(returnseed)
+        return returnseed;
     }
 }
 

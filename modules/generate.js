@@ -10,7 +10,8 @@ for (let num in seeds) {
 for (let num in patches) {
     patchlist[patches[num].id] = new Patch(patches[num]);
 }
-console.log(seedlist);
-console.log(patchlist);
 
-exports = { seedlist, patchlist };
+module.exports = {
+    seedlist: seedlist,
+    patchlist: patchlist
+};
