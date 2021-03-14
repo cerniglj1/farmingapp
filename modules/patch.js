@@ -1,10 +1,14 @@
+
+const patchlist = []; //list of all patches
+const { seedlist } = require('./seed.js');
+
 class Patch {
-    constructor(location = '', seeds = [], type = '', location_name = '') {
-        this.location = location;
+    constructor({id, type, location}) {
+        this.id = id;
         this.type = type;
+        this.location = location;
         patchlist.push(this);
         this.generateSeeds();
-        this.location_name = location_name;
 
     }
 
@@ -19,8 +23,6 @@ class Patch {
             }
             this.seeds = generatedseeds
         }
-        //console.log(this.location + "'s seed gen")
-        //console.log(this.seeds)
     };
     // not currently used, may get rid of this.
     minseed() {
@@ -35,8 +37,9 @@ class Patch {
         //this returns the smallest/largest level for the seeds in the patch
         let returnseed = Babyseed // Baby seed is a placeholder seed
         for (let num in this.seeds) {
-            if ((this.seeds[num].level <= player.level) &&
-                (this.seeds[num].level >= returnseed.level)) {
+            let seed = this.seeds[num];
+            if ((seed.level <= player.level) &&
+                (seed.level >= returnseed.level)) {
                 returnseed = this.seeds[num]
             }
         }
@@ -44,4 +47,7 @@ class Patch {
     }
 }
 
-export { Patch };
+module.exports = {
+    patchlist: patchlist,
+    Patch: Patch
+};

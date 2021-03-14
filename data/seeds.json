@@ -1,4 +1,5 @@
-[{"name": "Babyseed", "level": 0, "xp": 0, "type": "god"},
+[
+{"name": "Babyseed", "level": 0, "xp": 0, "type": "god"},
 {"name": "Potato", "level": 1, "xp": 98, "type": "allotment"},
 {"name": "Onion", "level": 5, "xp": 114.5, "type": "allotment"},
 {"name": "Cabbage", "level": 7, "xp": 125, "type": "allotment"},
