@@ -1,5 +1,5 @@
 const { seedlist, patchlist } = require('./modules/generate');
-const Player = require('./modules/player');
+const { Player } = require('./modules/player');
 
 
 /*const patches = player => {
@@ -49,13 +49,12 @@ const getInventory = (patches, player) => {
 			}
 	}
 	for (let seed in bestseeds) {
-		//3 seeds per allotment
+		//3 seeds per allotments
 		inventory.push(bestseeds[seed].name + ' seeds x 3')
 	}
 	stackUp(inventory)
 }
-
 //Create the player #leet boy
-const player = new Player(username = 'Jane Solo', level = 2)
+const player = new Player('jane solo', ['q1d','12d'])
 
-getInventory(patchlist, player);
+console.log(player)
