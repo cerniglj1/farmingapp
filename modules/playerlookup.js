@@ -19,4 +19,4 @@ const farmingLevel = async (username) => {
 
 module.exports = {
 	farmingLevel: farmingLevel
-}
+};

@@ -7,7 +7,6 @@ class Patch {
         this.id = id;
         this.type = type;
         this.location = location;
-        patchlist.push(this);
         this.generateSeeds();
 
     }
