@@ -1,4 +1,4 @@
-const { seedlist, patchlist } = require('./modules/generate');
+const { seedlist, patchlist, locationlist } = require('./modules/generate');
 const { Player } = require('./modules/player');
 
 
@@ -15,7 +15,7 @@ const { Player } = require('./modules/player');
 	}
 }*/
 
-function stackUp(items) {
+const stackUp = (items) => {
 	let inv = []
 	let returninv = {}
 
@@ -35,13 +35,14 @@ function stackUp(items) {
 
 const getInventory = (patches, player) => {
 
-	let bestseeds = []
-	let inventory = []
+	let bestseeds = [];
+	let inventory = [];
+	let playerlevel = player.getLevel();
 
 	for (let num in patches) {
 		theseed = patches[num].maxseed(player)
-		//console.log(`about to compare ${theseed.level} <= ${player.level}`)
-			if (theseed.level === 0 || theseed.level > player.level) {
+		console.log(`about to compare ${theseed.level} <= ${player.level}`)
+			if (theseed.level === 0 || theseed.level > playerlevel) {
 				console.log(`skipping ${theseed.name}`)
 			} else {
 				bestseeds.push(theseed)
@@ -54,7 +55,15 @@ const getInventory = (patches, player) => {
 	}
 	stackUp(inventory)
 }
-//Create the player #leet boy
-const player = new Player('jane solo', ['q1d','12d'])
 
-console.log(player)
+
+async function main() {
+	const player = new Player('jane solo', ['q1d', '12d']);
+	await player.init();
+
+	const inventory = await getInventory(patchlist, player);
+}
+
+main()
+	.then(() => console.log('all run'))
+	.catch(error => console.log(error));

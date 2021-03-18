@@ -5,8 +5,19 @@ class Player {
         //he be a leet boy
         this.username = username;
         this.quests = quests;
-        this.level = farmingLevel(this.username).then((value) => {return value})
+        this.level = null;
     }
+
+    async init(){
+        await this.getLevel();
+    }
+
+    async getLevel() {
+        const response = await farmingLevel(this.username);
+        this.level = response;
+        return response;
+    }
+
 }
 
 module.exports = {

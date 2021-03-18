@@ -5,27 +5,21 @@ const seeds = require('../data/seeds.json');
 const patches = require('../data/patches.json');
 const locations = require('../data/locations.json');
 
-console.log(seedlist)
 console.log('generating seeds')
 for (let num in seeds) {
         seedlist[seeds[num].name] = new Seed(seeds[num]);
 }
 console.log('seeds generated')
-console.log(seedlist)
-console.log(patchlist)
 console.log('generating patches')
 for (let num in patches) {
     patchlist[patches[num].id] = new Patch(patches[num]);
 }
 console.log('patches generated')
-console.log(patchlist)
-console.log(locationlist)
 console.log('generating locations')
 for (let num in locations) {
     locationlist[locations[num].id] = new Location(locations[num]);
 }
 console.log('locations generated')
-console.log(locationlist)
 
 module.exports = {
     seedlist: seedlist,
