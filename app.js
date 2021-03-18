@@ -18,7 +18,7 @@ const { Player } = require('./modules/player');
 const stackUp = (items) => {
 	let inv = []
 	let returninv = {}
-
+	console.log('stacking seeds...')
 	for (let num in items) {
 		inv.push(items[num].split(' x '))
 	}
@@ -30,6 +30,7 @@ const stackUp = (items) => {
 			returninv[inv[num][0]] = returninv[inv[num][0]] + parseInt(inv[num][1])
 		}
 	}
+	console.log('stacked.')
 	console.log(returninv);
 }
 
@@ -41,9 +42,9 @@ const getInventory = (patches, player) => {
 
 	for (let num in patches) {
 		theseed = patches[num].maxseed(player)
-		console.log(`about to compare ${theseed.level} <= ${player.level}`)
+		//console.log(`about to compare ${theseed.level} <= ${player.level}`)
 			if (theseed.level === 0 || theseed.level > playerlevel) {
-				console.log(`skipping ${theseed.name}`)
+				//console.log(`skipping ${theseed.name}`)
 			} else {
 				bestseeds.push(theseed)
 				console.log(`appending ${theseed.name} to bestseeds list.`)

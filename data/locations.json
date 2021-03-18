@@ -2,7 +2,7 @@
 {
   "name": "South of Falador",
   "id": "L1",
-  "coordinates": "3059,3312",
+  "coordinates": [3059,3312],
   "teleports": {
     "1": "Explorers ring 2+",
     "2": "Spirit tree to Port Sarim",
@@ -16,7 +16,7 @@
 {
   "name": "West of Port Phasmatys",
   "id": "L2",
-  "coordinates": "3606,3530",
+  "coordinates": [3606,3530],
   "teleports": {
     "1": "Fairy ring code ALQ",
     "2": "Ectophial",
@@ -28,7 +28,7 @@
 {
   "name": "North of Catherby",
   "id": "L3",
-  "coordinates": "2814,3468",
+  "coordinates": [2814,3468],
   "teleports": {
     "1": "Catherby Teleport",
     "2": "Camelot Teleport"
@@ -37,7 +37,7 @@
 {
   "name": "North of Ardougne",
   "id": "L4",
-  "coordinates": "2671,3379",
+  "coordinates": [2671,3379],
   "teleports": {
     "1": "Ardougne Cloak 2+",
     "2": "Skills necklaces to Fishing Guild",
@@ -51,7 +51,7 @@
 {
   "name": "Southwest corner of Hosidius",
   "id": "L5",
-  "coordinates": "1739,3559",
+  "coordinates": [1739,3559],
   "teleports": {
     "1": "Xerics talisman to Xerics Glade",
     "2": "Hosidius portal: Teleport to House/Redirected House Tab",

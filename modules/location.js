@@ -10,11 +10,7 @@ class Location {
 
     }
 
-    parsePatchId(patch) {
-        return patch.id.slice(0,1);
-    }
-
-    generatePatches() {
+    generatePatches = () => {
         let generatedpatches = []
         for (let num in patchlist) {
             if (patchlist[num].id.slice(0,2) !== this.id) {
@@ -25,6 +21,12 @@ class Location {
             }
         }
         this.patches = generatedpatches
+    }
+
+    distanceFrom = (destination) => {
+        let xdistance = (this.coordinates[0] - destination.coordinates[0]) ** 2;
+        let ydistance = (this.coordinates[1] - destination.coordinates[1]) ** 2;
+        return xdistance + ydistance
     }
 }
 
