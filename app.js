@@ -1,24 +1,11 @@
 const { seedlist, patchlist, locationlist } = require('./modules/generate');
 const { Player } = require('./modules/player');
 
-
-/*const patches = player => {
-	let lilpatchlist = []
-	for (let num in patchlist) {
-		let patchlevel = patchlist[num].maxseed(player).level
-		console.log(patchlevel)
-		console.log(player.level)
-		if (patchlevel <= player.level) {
-			console.log(`in if statement. current num ${num}`)
-			lilpatchlist.push(patchlist[num])
-		}	else { console.log('else fired') }
-	}
-}*/
-
+// This function takes an array of items and stacks them if they're similar.
+// *** Need to add stackability check
 const stackUp = (items) => {
 	let inv = []
 	let returninv = {}
-	console.log('stacking seeds...')
 	for (let num in items) {
 		inv.push(items[num].split(' x '))
 	}
@@ -30,8 +17,7 @@ const stackUp = (items) => {
 			returninv[inv[num][0]] = returninv[inv[num][0]] + parseInt(inv[num][1])
 		}
 	}
-	console.log('stacked.')
-	console.log(returninv);
+	return returninv;
 }
 
 const getInventory = (patches, player) => {
@@ -47,24 +33,25 @@ const getInventory = (patches, player) => {
 				//console.log(`skipping ${theseed.name}`)
 			} else {
 				bestseeds.push(theseed)
-				console.log(`appending ${theseed.name} to bestseeds list.`)
+				//console.log(`appending ${theseed.name} to bestseeds list.`)
 			}
 	}
 	for (let seed in bestseeds) {
 		//3 seeds per allotments
 		inventory.push(bestseeds[seed].name + ' seeds x 3')
 	}
-	stackUp(inventory)
+	return stackUp(inventory)
 }
 
 
-async function main() {
-	const player = new Player('jane solo', ['q1d', '12d']);
+async function main(playername) {
+	const player = new Player(playername, ['q1d', '12d']);
 	await player.init();
 
 	const inventory = await getInventory(patchlist, player);
+	return inventory
 }
 
-main()
-	.then(() => console.log('all run'))
-	.catch(error => console.log(error));
+module.exports = {
+	main: main
+}
