@@ -5,18 +5,39 @@ const { Player } = require('./modules/player');
 // *** Need to add stackability check
 const stackUp = (items) => {
 	let inv = []
-	let returninv = {}
+	let returninv = []
+	let counter = 0
+	// create a better array to work with.
 	for (let num in items) {
 		inv.push(items[num].split(' x '))
 	}
+	//sort by name
+	inv.sort((a, b) => {
+		let comparison = 0
 
+		if (a > b) {comparison = 1;}
+		else if (a < b) {comparison = -1;}
+		return comparison;
+	})
+
+
+	//name is 		inv[num][0]
+	//number is 	parseInt(inv[num][1])
 	for (let num in inv) {
-		if (returninv[inv[num][0]] === undefined) {
-			returninv[inv[num][0]] = parseInt(inv[num][1])
-		} else if (returninv[inv[num][0]] === returninv[inv[num][0]]) {
-			returninv[inv[num][0]] = returninv[inv[num][0]] + parseInt(inv[num][1])
+		// Create the Item to Push
+		let itemtopush = {'name': inv[num][0], 'amount': parseInt(inv[num][1])};
+		// Check if returninv array is empty, if so push item.
+		console.log(`comparing ${inv[num]} to ${inv[num-1]}`)
+		if (returninv.length === 0 || itemtopush.amount === 0) {
+			returninv.push(itemtopush)
+		} else if (inv[num][0] === inv[num-1][0]) {
+			returninv[counter].amount = returninv[counter].amount + itemtopush.amount;
+		} else if (inv[num][0] !== inv[num-1][0]) {
+			returninv.push(itemtopush);
+			counter++;
 		}
 	}
+	console.log(returninv)
 	return returninv;
 }
 
