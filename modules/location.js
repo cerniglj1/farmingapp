@@ -2,7 +2,7 @@ const locationlist = []; //list of all patches
 const { patchlist } = require('./patch.js');
 
 class Location {
-    constructor({name, id, coordinates}) {
+    constructor({ name, id, coordinates }) {
         this.name = name;
         this.id = id;
         this.coordinates = coordinates;
@@ -13,10 +13,10 @@ class Location {
     generatePatches = () => {
         let generatedpatches = []
         for (let num in patchlist) {
-            if (patchlist[num].id.slice(0,2) !== this.id) {
-            } else if ((patchlist[num].id.slice(0,2) === this.id) && (this.id === undefined)) {
+            if (patchlist[num].id.slice(0, 2) !== this.id) {
+            } else if ((patchlist[num].id.slice(0, 2) === this.id) && (this.id === undefined)) {
                 generatedpatches.push(patchlist[num]);
-            } else if ((patchlist[num].id.slice(0,2) === this.id) && (this.id !== undefined)) {
+            } else if ((patchlist[num].id.slice(0, 2) === this.id) && (this.id !== undefined)) {
                 generatedpatches.push(patchlist[num]);
             }
         }

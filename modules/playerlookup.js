@@ -5,7 +5,7 @@ const constructUrl = (username) => {
 	return baseurl + username.replace(/\s/g, '%20');
 }
 
-const farmingLevel = async (username) => {
+const getFarmingLevel = async (username) => {
 
 	const fetcheddata = await fetch(constructUrl(username))
 
@@ -18,5 +18,5 @@ const farmingLevel = async (username) => {
 }
 
 module.exports = {
-	farmingLevel: farmingLevel
+	getFarmingLevel: getFarmingLevel
 };

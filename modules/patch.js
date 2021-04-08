@@ -3,7 +3,7 @@ const patchlist = []; //list of all patches
 const { seedlist } = require('./seed.js');
 
 class Patch {
-    constructor({id, type, location}) {
+    constructor({ id, type, location }) {
         this.id = id;
         this.type = type;
         this.location = location;
@@ -33,13 +33,15 @@ class Patch {
         //console.log((Math.min(...seedlist)));
     }
     maxseed(player) {
-        //this returns the largest seed that you can plant.
+        //this returns the highest level seed that you can plant.
         let returnseed = seedlist.Babyseed // Baby seed is a placeholder seed
         for (let num in this.seeds) {
             let seed = this.seeds[num];
-            if ((seed.level <= player.level) &&
-                (seed.level >= returnseed.level)) {
-                returnseed = this.seeds[num]
+
+            // if current seed level higher than the current return seed's level
+            // and if the player is able to plant the seed.
+            if ((seed.level <= player.level) && (seed.level >= returnseed.level)) {
+                returnseed = this.seeds[num];
             }
         }
         return returnseed;

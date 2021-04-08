@@ -9,7 +9,7 @@ const teleports = require('../data/teleports.json');
 
 console.log(`Generating ${seeds.length} seeds, ${patches.length} patches, ${locations.length} locations and ${teleports.length} teleports.`)
 for (let num in seeds) {
-        seedlist[seeds[num].name] = new Seed(seeds[num]);
+    seedlist[seeds[num].name] = new Seed(seeds[num]);
 }
 console.log('seeds generated')
 

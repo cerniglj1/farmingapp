@@ -1,7 +1,7 @@
 const teleportlist = []
 
 class Teleport {
-    constructor({ name, coordinates, items, requirements}) {
+    constructor({ name, coordinates, items, requirements }) {
         if (typeof name === 'string') { //name must be string
             this.name = name;
         } else {
